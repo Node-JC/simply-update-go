@@ -73,6 +73,11 @@ case $ARCH in
     ;;
 esac
 
+# Ensure VERSION includes a patch version because Go's API requires it
+if [[ "$VERSION" =~ ^[0-9]+\.[0-9]+$ ]]; then
+    VERSION="${VERSION}.0"
+fi
+
 URL="https://go.dev/dl/go${VERSION}.${OS}-${ARCH}.tar.gz"
 
 # Check for updates to the script
