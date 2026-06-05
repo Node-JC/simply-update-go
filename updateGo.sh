@@ -94,7 +94,8 @@ fi
 
 # Step 2: Remove the current version of Go if it exists
 if [ -d "/usr/local/go" ]; then
-  echo "Removing current Go installation..."
+  CURRENT_V=$(go version)
+  echo "Removing current installation of ${CURRENT_V}"
   sudo rm -rf /usr/local/go
 else
   echo "No existing Go installation found."
